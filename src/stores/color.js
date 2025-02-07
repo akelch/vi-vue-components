@@ -1,18 +1,11 @@
-import { reactive } from "vue"
-import { defineStore } from "pinia"
-
-export const useColorStore = defineStore("colorStore", () => {
-  const state = reactive({
-    primaryColor: "#d00f1c",
-    secondaryColor: "#333333"
-  })
+export function useColor(primaryColor, secondaryColor){
 
   function getPrimaryColor(lightness = 0) {
-    const [h,s,l] = colorConvert(state.primaryColor, lightness)
+    const [h,s,l] = colorConvert(primaryColor, lightness)
     return "hsl(" + h + "," + s + "%," + l + "%)"
   }
   function getSecondaryColor(lightness = 0) {
-    const [h,s,l] = colorConvert(state.secondaryColor, lightness)
+    const [h,s,l] = colorConvert(secondaryColor, lightness)
     return "hsl(" + h + "," + s + "%," + l + "%)"
   }
   function colorConvert(hexColor, lightness) {
@@ -48,9 +41,17 @@ export const useColorStore = defineStore("colorStore", () => {
   }
 
   function getAlphaColor(color, lightness, alpha){
-    const [h,s,l] = colorConvert(state[color], lightness)
+    const [h,s,l] = colorConvert(color, lightness)
     return "hsla(" + h + "," + s + "%," + l + "% , "+ alpha +"%)"
   }
 
-  return { state, getPrimaryColor, getSecondaryColor, getAlphaColor }
-})
+  function getPrimaryAlphaColor(lightness, alpha){
+    return getAlphaColor(primaryColor,lightness,alpha)
+  }
+
+  function getSecondaryAlphaColor(lightness, alpha){
+    return getAlphaColor(secondaryColor,lightness,alpha)
+  }
+
+  return { getPrimaryColor, getSecondaryColor, getAlphaColor, getPrimaryAlphaColor,getSecondaryAlphaColor }
+}

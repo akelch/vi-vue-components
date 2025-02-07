@@ -1,8 +1,8 @@
 import view_missing from "./views/view_missing.vue"
 import { createRouter, createWebHashHistory } from "vue-router"
-import { useUserStore } from "@viur/vue-utils/login/stores/user"
-import { useContextStore } from "./stores/context"
-import { useExtensionsStore } from "./stores/extensions";
+//import { useUserStore } from "@viur/vue-utils/login/stores/user"
+//import { useContextStore } from "./stores/context"
+//import { useExtensionsStore } from "./stores/extensions";
 import home from "./views/home.vue"
 
 const default_routes = [
@@ -16,6 +16,7 @@ const default_routes = [
     name: "home",
     component: home
   },
+    /*
   {
     path: "/db/:module/list/:group?",
     name: "list",
@@ -114,7 +115,7 @@ const default_routes = [
     meta: { action: "info" },
     props: true,
     component: () => import("./views/moduleInfo.vue")
-  }
+  }*/
 ]
 
 function createRouterInstance(routes, replace = false) {
@@ -131,6 +132,7 @@ function createRouterInstance(routes, replace = false) {
     routes: newRoutes
   })
 
+  /*
   router.afterEach((to, from) => {
     //useUserStore().addAction();
   })
@@ -160,7 +162,7 @@ function createRouterInstance(routes, replace = false) {
       to.query = newQuery
       next(to)
     }
-  })
+  })*/
   return router
 }
 

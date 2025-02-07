@@ -1,3 +1,3 @@
 <template>
-  HOME WORLD
+  admin
 </template>

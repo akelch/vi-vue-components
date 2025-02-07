@@ -8,7 +8,7 @@
   "author": "Andreas H. Kelch",
   "license": "MIT",
   "dependencies": {
-    "@codemirror/lang-python": "^6.1.6",
+    "@codemirror/lang-python": "^6.1.7",
     "@viur/vue-utils": "^2.1.6",
     "@vueuse/core": "^12.4.0",
     "codemirror": "^6.0.1",
